@@ -2,9 +2,9 @@
 
 Goals:
 - Get Face from camera
-- send face to Claridai
+- send face to Clarifai
 - Get username
-- Text user name maybe picute
+- Text user name maybe picture
 
 
 Platform
