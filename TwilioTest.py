@@ -13,8 +13,12 @@ app = ClarifaiApp(api_key="00fe6ee1fb9a4d5e8688870b392ed496")
 model = app.models.get('People')
 
 cam = cv.VideoCapture(0)
+<<<<<<< HEAD
 classifier = cv.CascadeClassifier('C:\\Users\\travi\\venv\\Lib\\site-packages\\cv2\\data\\haarcascade_frontalface_alt.xml')
 frameCount = 100;
+=======
+classifier = cv.CascadeClassifier('haarcascade_frontalface_alt.xml')
+>>>>>>> 62239e8acae7d4ddfad494ee6ed049ac465d60bf
 while True:
     ret, frame = cam.read()
     frameCount += 1
@@ -24,6 +28,7 @@ while True:
         faces = classifier.detectMultiScale(gray)
 
         for x,y,w,h in faces:
+<<<<<<< HEAD
             if frameCount > 60:
                 frameCount = 0
                 img = frame[y - 40:y + h + 40, x - 40:x + w + 40]
@@ -32,6 +37,8 @@ while True:
                 name = model.predict([climg])["outputs"][0]["data"]["concepts"][0]["name"]
                 prediction_value = model.predict([climg])["outputs"][0]["data"]["concepts"][0]["value"]
                 print(name + " : " + str(prediction_value))
+=======
+>>>>>>> 62239e8acae7d4ddfad494ee6ed049ac465d60bf
             cv.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 1)
         cv.imshow("Image", frame)
 
