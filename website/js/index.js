@@ -99,7 +99,6 @@ function processVideo() {
     let face = faceVect.get(i);
     if(frameCount > 60){
       frameCount = 0;
-      let detectedFace = faceMat.roi(new cv.Rect(face.x, face.y, face.width, face.height));
 
      // var canvas = document.getElementById('canvasOutput');
       //var image = canvasOutput.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
@@ -128,6 +127,8 @@ function processVideo() {
         }
       );
     }
+    document.getElementsByClassName("afterN").innerHTML = lastPersonName;
+    //faces.push(new cv.putText(srcMat, lastPersonName, {x: face.x, y: face.y}, cv.FONT_HERSHEY_SIMPLEX, 1.0, [0,255,0,255]));
     faces.push(new cv.Rect(face.x, face.y, face.width, face.height));
   }
   faceMat.delete();
