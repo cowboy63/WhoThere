@@ -127,7 +127,9 @@ function processVideo() {
         }
       );
     }
-    document.getElementsByClassName("afterN").innerHTML = lastPersonName;
+    if(lastPersonName != null){
+    document.getElementById("afterN").innerHTML = lastPersonName;
+    }
     //faces.push(new cv.putText(srcMat, lastPersonName, {x: face.x, y: face.y}, cv.FONT_HERSHEY_SIMPLEX, 1.0, [0,255,0,255]));
     faces.push(new cv.Rect(face.x, face.y, face.width, face.height));
   }
